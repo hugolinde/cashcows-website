@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavHighlight();
   initAudioPlayer();
   initLoadMore();
+  initPhotoLoadMore();
 });
 
 // ---- Back to top ----
@@ -149,4 +150,36 @@ function initLoadMore() {
       if (shown >= items.length) btn.hidden = true;
     });
   });
+}
+
+// ---- Foto's op mobiel: toont een deel, met laad-meer knop. Op desktop altijd alles. ----
+function initPhotoLoadMore() {
+  const grid = document.getElementById('photo-grid');
+  const btn = document.querySelector('.photo-load-more');
+  if (!grid || !btn) return;
+
+  const items = Array.from(grid.children);
+  const batch = parseInt(btn.dataset.batch, 10) || 16;
+  const mq = window.matchMedia('(max-width: 700px)');
+  let shown = batch;
+
+  const apply = () => {
+    shown = batch;
+    if (mq.matches) {
+      items.forEach((item, i) => { item.hidden = i >= batch; });
+      btn.hidden = items.length <= batch;
+    } else {
+      items.forEach(item => { item.hidden = false; });
+      btn.hidden = true;
+    }
+  };
+
+  btn.addEventListener('click', () => {
+    items.slice(shown, shown + batch).forEach(item => { item.hidden = false; });
+    shown += batch;
+    if (shown >= items.length) btn.hidden = true;
+  });
+
+  mq.addEventListener('change', apply);
+  apply();
 }

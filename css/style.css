@@ -11,7 +11,7 @@
   --border: #2a2a2a;
   --max-width: 900px;
   --font-body: 'Space Mono', 'Courier New', monospace;
-  --font-display: 'Poppins', 'Arial', sans-serif;
+  --font-display: 'Quicksand', 'Arial', sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -68,17 +68,18 @@ h2 {
 
 .hero-socials {
   position: absolute;
-  top: 1.25rem; right: 1.25rem;
+  top: 1.5rem; right: 25%;
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   z-index: 5;
 }
 .icon-btn {
-  width: 40px; height: 40px;
+  width: 52px; height: 52px;
   display: flex; align-items: center; justify-content: center;
   border-radius: 8px;
   color: #fff;
 }
+.icon-btn svg { width: 28px; height: 28px; }
 .icon-btn.instagram { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4); }
 .icon-btn.facebook { background: #1877f2; }
 
@@ -263,7 +264,7 @@ h2 {
   break-inside: avoid;
 }
 .video-item p { text-align: center; margin-top: 0.5rem; font-weight: 700; }
-.video-item[hidden] { display: none; }
+.video-item[hidden], .photo-item[hidden] { display: none; }
 
 .load-more-btn, .ghost-btn {
   display: block;
@@ -318,7 +319,8 @@ footer {
   font-size: 0.85rem;
 }
 footer .socials { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.25rem; }
-footer .icon-btn { width: 48px; height: 48px; }
+footer .icon-btn { width: 56px; height: 56px; }
+footer .icon-btn svg { width: 30px; height: 30px; }
 
 /* ---- Document viewer pages (playlist.html / rider.html) ---- */
 .doc-bar {
@@ -344,6 +346,12 @@ footer .icon-btn { width: 48px; height: 48px; }
   width: 100%;
   height: calc(100vh - 68px);
   border: none;
+}
+
+/* ---- Desktop: groter logo en menu ---- */
+@media (min-width: 701px) {
+  .hero-content .logo { width: 96px; height: 96px; }
+  .nav-link { font-size: 1.2rem; padding: 1.25rem 0.5rem; }
 }
 
 /* ---- Responsive ---- */
