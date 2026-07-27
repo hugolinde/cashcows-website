@@ -58,8 +58,6 @@ function initNavHighlight() {
 function initAudioPlayer() {
   const audio = document.getElementById('audio-player');
   const toggle = document.getElementById('play-toggle');
-  const iconPlay = toggle ? toggle.querySelector('.icon-play') : null;
-  const iconPause = toggle ? toggle.querySelector('.icon-pause') : null;
   const progress = document.getElementById('progress');
   const current = document.getElementById('time-current');
   const total = document.getElementById('time-total');
@@ -75,13 +73,11 @@ function initAudioPlayer() {
   };
 
   const showPause = () => {
-    if (iconPlay) iconPlay.hidden = true;
-    if (iconPause) iconPause.hidden = false;
+    toggle.classList.add('is-playing');
     toggle.setAttribute('aria-label', 'Pauzeren');
   };
   const showPlay = () => {
-    if (iconPlay) iconPlay.hidden = false;
-    if (iconPause) iconPause.hidden = true;
+    toggle.classList.remove('is-playing');
     toggle.setAttribute('aria-label', 'Afspelen');
   };
 

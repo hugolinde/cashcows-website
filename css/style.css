@@ -103,10 +103,14 @@ h2 {
 
 /* ---- Nav ---- */
 .navbar {
-  display: flex;
-  align-items: center;
   background: #000;
   border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 .nav-toggle {
   display: none;
@@ -155,7 +159,7 @@ h2 {
 .member-list { list-style: none; }
 .member-list li { padding: 0.25rem 0; font-size: 0.9rem; }
 .member-list .name { font-weight: 700; }
-.band-description { color: var(--text-dim); max-width: 700px; margin: 0 auto; text-align: center; }
+.band-description { color: var(--text-dim); }
 
 /* ---- Testimonial ---- */
 .testimonial {
@@ -202,6 +206,9 @@ h2 {
   display: flex; align-items: center; justify-content: center;
   grid-row: span 2;
 }
+.play-btn .icon-pause { display: none; }
+.play-btn.is-playing .icon-play { display: none; }
+.play-btn.is-playing .icon-pause { display: block; }
 .player-info { display: flex; flex-direction: column; }
 .player-label { color: var(--text-dim); font-size: 0.9rem; }
 .player-title { font-weight: 700; font-size: 1.2rem; }
@@ -349,5 +356,5 @@ footer .icon-btn { width: 48px; height: 48px; }
   }
   .nav-links.open { display: flex; }
   .nav-link { border-right: none; border-bottom: 1px solid var(--border); }
-  .navbar { position: relative; }
+  .nav-inner { position: relative; }
 }
