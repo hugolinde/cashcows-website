@@ -236,8 +236,8 @@ h2 {
 .track-list li.active { color: var(--gold); font-weight: 700; }
 .track-time { color: var(--text-dim); }
 
-/* ---- Video / Foto grids ---- */
-.video-grid, .photo-grid {
+/* ---- Video grid ---- */
+.video-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -249,14 +249,21 @@ h2 {
   background: #000;
   border-radius: 4px;
 }
+
+/* ---- Foto grid: masonry met wisselende hoogtes ---- */
+.photo-grid {
+  column-count: 3;
+  column-gap: 1rem;
+}
 .photo-item {
   width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
+  display: block;
+  margin-bottom: 1rem;
   border-radius: 4px;
+  break-inside: avoid;
 }
 .video-item p { text-align: center; margin-top: 0.5rem; font-weight: 700; }
-.video-item[hidden], .photo-item[hidden] { display: none; }
+.video-item[hidden] { display: none; }
 
 .load-more-btn, .ghost-btn {
   display: block;
@@ -340,9 +347,13 @@ footer .icon-btn { width: 48px; height: 48px; }
 }
 
 /* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .photo-grid { column-count: 2; }
+}
 @media (max-width: 700px) {
   .band-row, .testimonial { grid-template-columns: 1fr; }
-  .video-grid, .photo-grid { grid-template-columns: 1fr; }
+  .video-grid { grid-template-columns: 1fr; }
+  .photo-grid { column-count: 1; }
 
   .nav-toggle { display: flex; }
   .nav-links {

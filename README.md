@@ -12,27 +12,34 @@ Broncode van de website van The Cash Cows, gepubliceerd via GitHub Pages.
 ## Structuur
 
 - `index.html` — hoofdpagina
+- `playlist.html` / `rider.html` — ingebedde PDF-viewers met "terug naar website"-knop
 - `css/style.css` — styling
-- `js/main.js` — scripts (nav, audiospeler, back-to-top)
-- `images/` — logo, hero-achtergrond, bandfoto, testimonial-foto, `gallery/` (fotosectie), `video-thumbs/` (posters)
-- `muziek/` — 5 tracks als mp3 (geconverteerd uit de aangeleverde wav-bestanden)
-- `video/` — 6 clips als mp4 (geconverteerd/hergecodeerd uit de aangeleverde bestanden)
+- `js/main.js` — scripts (nav, audiospeler, laad-meer, back-to-top)
+- `images/` — logo, hero-achtergrond, bandfoto, testimonial-foto, `gallery/` (fotosectie, genummerd 001–020 + 011a/015a), `video-thumbs/` (posters)
+- `muziek/` — 7 tracks als mp3
+- `video/` — 10 clips als mp4
 - `docs/` — `technical-rider.pdf` en `example-playlist.pdf`
 
 ## Status
 
-Nagebouwd naar de oude Wix-site (zie `../screenshots oude WIX website/`), in het Nederlands, met de
-foto's, video's, muziek, logo, rider en playlist die zijn aangeleverd in de mapstructuur.
+Nagebouwd naar de oude Wix-site (zie `../screenshots oude WIX website/`), in het Nederlands, met alle
+foto's, video's, muziek, logo, rider en playlist zoals aangeleverd (genummerd per map, aflopend
+gesorteerd — hoogste nummer boven/eerst).
 
-Nog te controleren/aan te vullen:
+- Foto-sectie: masonry-layout (wisselende hoogtes), alle 22 foto's, geen laad-meer.
+- Video-sectie: standaard 8 clips, "Meer laden"-knop voor de resterende 2 (Live in Hapert, Sax solo).
+- Muziek: 7 tracks, klikbaar in de tracklist; bovenste track (I Will Survive) is de standaard/actieve track.
 
-- **Videotitels**: alleen "Live in Hapert" en "Live in Wassenaar" konden met zekerheid herleid worden
-  (bestandsnaam / geotag). De overige 4 clips uit 2017 heten nu generiek "Live optreden (2017)" —
-  laat het weten als je de echte locaties/gignamen hebt, dan pas ik de titels aan.
-- **Fotoselectie**: er is een keuze van 8 foto's gemaakt uit de aangeleverde set voor de Foto-sectie;
-  zeg het als je andere foto's wilt gebruiken (alle originelen staan nog in `../foto's/`).
-- `images/logo-cow.svg` is een ongebruikt restbestand van de eerste opzet (kon niet verwijderd worden
-  vanuit hier) — mag je zelf weggooien.
+## Op te ruimen (kon niet vanuit hier verwijderd worden)
+
+Van de vorige media-ronde zijn deze bestanden nu ongebruikt — mag je zelf weggooien:
+
+- `video/hapert-saturday-night.mp4`, `video/live-optreden-2017-a/b/c/d.mp4`
+- `images/video-thumbs/hapert-saturday-night.jpg`, `images/video-thumbs/live-optreden-2017-a/b/c/d.jpg`
+- `images/gallery/gallery-1.jpg` t/m `gallery-8.jpg`
+- `images/logo-cow.svg`
+
+## Nog openstaand
+
+- IMG_3128.HEIC in `../foto's/` is niet meegenomen (zat niet in de 001–020 reeks).
 - Later: Engelse en Spaanse taalversie toevoegen.
-- IMG_3128.HEIC in `../foto's/` is niet gebruikt (HEIC wordt niet ondersteund door browsers) — laat weten
-  of dit een belangrijke foto is, dan converteer ik hem alsnog naar jpg.
