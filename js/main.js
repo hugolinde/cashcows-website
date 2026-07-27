@@ -2,23 +2,41 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
+  initMobileNav();
   initNavHighlight();
   initAudioPlayer();
+  initLoadMore();
 });
 
 // ---- Back to top ----
 function initBackToTop() {
   const btn = document.getElementById('back-to-top');
   if (!btn) return;
-  window.addEventListener('scroll', () => {
-    btn.classList.toggle('visible', window.scrollY > 400);
-  });
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
-// ---- Active nav link on scroll ----
+// ---- Mobiel uitklapmenu ----
+function initMobileNav() {
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  links.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+// ---- Actieve nav-link tijdens scrollen ----
 function initNavHighlight() {
   const links = document.querySelectorAll('.nav-link');
   const sections = Array.from(links)
@@ -40,6 +58,8 @@ function initNavHighlight() {
 function initAudioPlayer() {
   const audio = document.getElementById('audio-player');
   const toggle = document.getElementById('play-toggle');
+  const iconPlay = toggle ? toggle.querySelector('.icon-play') : null;
+  const iconPause = toggle ? toggle.querySelector('.icon-pause') : null;
   const progress = document.getElementById('progress');
   const current = document.getElementById('time-current');
   const total = document.getElementById('time-total');
@@ -54,6 +74,17 @@ function initAudioPlayer() {
     return `${m}:${sec}`;
   };
 
+  const showPause = () => {
+    if (iconPlay) iconPlay.hidden = true;
+    if (iconPause) iconPause.hidden = false;
+    toggle.setAttribute('aria-label', 'Pauzeren');
+  };
+  const showPlay = () => {
+    if (iconPlay) iconPlay.hidden = false;
+    if (iconPause) iconPause.hidden = true;
+    toggle.setAttribute('aria-label', 'Afspelen');
+  };
+
   const play = () => audio.play().catch(() => {});
 
   toggle.addEventListener('click', () => {
@@ -64,8 +95,8 @@ function initAudioPlayer() {
     }
   });
 
-  audio.addEventListener('play', () => { toggle.setAttribute('aria-label', 'Pauzeren'); });
-  audio.addEventListener('pause', () => { toggle.setAttribute('aria-label', 'Afspelen'); });
+  audio.addEventListener('play', showPause);
+  audio.addEventListener('pause', showPlay);
 
   audio.addEventListener('loadedmetadata', () => {
     total.textContent = format(audio.duration);
@@ -93,6 +124,33 @@ function initAudioPlayer() {
       progress.value = 0;
       current.textContent = '00:00';
       play();
+    });
+  });
+}
+
+// ---- Laad meer (video's en foto's): toont standaard 8, knop laadt de rest ----
+function initLoadMore() {
+  document.querySelectorAll('.load-more-btn').forEach(btn => {
+    const grid = document.getElementById(btn.dataset.target);
+    if (!grid) return;
+    const batch = parseInt(btn.dataset.batch, 10) || 8;
+    const items = Array.from(grid.children);
+
+    items.forEach((item, i) => {
+      if (i >= batch) item.hidden = true;
+    });
+
+    if (items.length <= batch) {
+      btn.hidden = true;
+      return;
+    }
+    btn.hidden = false;
+
+    let shown = batch;
+    btn.addEventListener('click', () => {
+      items.slice(shown, shown + batch).forEach(item => { item.hidden = false; });
+      shown += batch;
+      if (shown >= items.length) btn.hidden = true;
     });
   });
 }
