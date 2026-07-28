@@ -369,6 +369,7 @@ footer .icon-btn { width: 56px; height: 56px; }
 
 /* ---- Desktop: groter logo en menu ---- */
 @media (min-width: 701px) {
+  .hero { aspect-ratio: 16 / 9; min-height: 0; }
   .hero-content .logo { width: 96px; height: 96px; }
   .nav-link { font-size: 1.2rem; padding: 1.25rem 0.5rem; }
 }
