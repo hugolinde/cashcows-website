@@ -65,8 +65,7 @@ h2 {
 /* ---- Hero ---- */
 .hero {
   position: relative;
-  background: linear-gradient(180deg, rgba(80,10,10,0.15), rgba(20,5,5,0.35)),
-              url('../images/hero-bg.jpg') center/cover no-repeat;
+  background: url('../images/hero-bg.jpg') center/cover no-repeat;
   background-color: #2a0808;
   min-height: 480px;
   display: flex;
