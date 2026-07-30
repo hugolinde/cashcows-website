@@ -190,7 +190,7 @@ h2 {
   gap: 2rem;
   align-items: center;
   padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
 }
 .testimonial blockquote {
   font-style: italic;
@@ -334,7 +334,7 @@ h2 {
 /* ---- Footer ---- */
 footer {
   text-align: center;
-  padding: 2.5rem 1.5rem;
+  padding: 1.25rem 1.5rem 2.5rem;
   border-top: 1px solid var(--border);
   color: var(--text-dim);
   font-size: 0.85rem;
@@ -368,18 +368,33 @@ footer .icon-btn { width: 56px; height: 56px; }
   border: none;
 }
 
+/* ---- Sectiemarges verkleind (desktop + mobiel) ---- */
+#wij-zijn { padding-top: 2rem; }
+#muziek { padding-top: 2rem; padding-bottom: 2rem; }
+#video { padding-top: 2rem; padding-bottom: 2rem; }
+#foto { padding-top: 2rem; padding-bottom: 2rem; }
+#playlist { padding-top: 2rem; padding-bottom: 2rem; }
+#contact { padding-top: 2rem; padding-bottom: 2rem; }
+
 /* ---- Desktop: groter logo en menu ---- */
 @media (min-width: 701px) {
-  .hero { aspect-ratio: 16 / 9; min-height: 0; }
+  .hero { aspect-ratio: 20 / 9; min-height: 0; background-position: center bottom; }
   .hero-content {
     position: absolute;
     left: 0; right: 0;
-    top: 66.66%;
+    top: 58.3%;
     transform: translateY(-50%);
     flex: none;
   }
   .hero-content .logo { width: 96px; height: 96px; }
   .nav-link { font-size: 1.2rem; padding: 1.25rem 0.5rem; }
+
+  /* extra ruimte halveren, alleen desktop */
+  #wij-zijn { padding-bottom: 2rem; }
+  .testimonial { padding-top: 1.25rem; }
+
+  /* kader om de muziekspeler */
+  #muziek { border: 1px solid #fff; }
 }
 
 /* ---- Responsive ---- */
@@ -431,4 +446,6 @@ footer .icon-btn { width: 56px; height: 56px; }
   .hero-content { flex-direction: column; gap: 0.75rem; }
   .hero-content .logo { width: 90px; height: 90px; }
   .hero-content h1 { font-size: 2.4rem; }
+
+  h2 { font-size: 1.5rem; }
 }

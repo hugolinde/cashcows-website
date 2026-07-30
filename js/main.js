@@ -125,7 +125,7 @@ function initAudioPlayer() {
   });
 }
 
-// ---- Laad meer (video's en foto's): toont standaard 8, knop laadt de rest ----
+// ---- Laad meer (video's): toont standaard 8, knop laadt de rest. Nogmaals klikken klapt weer in ----
 function initLoadMore() {
   document.querySelectorAll('.load-more-btn').forEach(btn => {
     const grid = document.getElementById(btn.dataset.target);
@@ -143,11 +143,14 @@ function initLoadMore() {
     }
     btn.hidden = false;
 
-    let shown = batch;
+    let expanded = false;
     btn.addEventListener('click', () => {
-      items.slice(shown, shown + batch).forEach(item => { item.hidden = false; });
-      shown += batch;
-      if (shown >= items.length) btn.hidden = true;
+      expanded = !expanded;
+      items.forEach((item, i) => {
+        item.hidden = expanded ? false : i >= batch;
+      });
+      btn.textContent = expanded ? 'Minder laden' : 'Meer laden';
+      if (!expanded) grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
   });
 }
