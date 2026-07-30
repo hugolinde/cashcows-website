@@ -155,7 +155,7 @@ function initLoadMore() {
   });
 }
 
-// ---- Foto's op mobiel: toont een deel, met laad-meer knop. Op desktop altijd alles. ----
+// ---- Foto's op mobiel: toont een deel, knop laadt de rest. Nogmaals klikken klapt weer in. Op desktop altijd alles. ----
 function initPhotoLoadMore() {
   const grid = document.getElementById('photo-grid');
   const btn = document.querySelector('.photo-load-more');
@@ -164,12 +164,13 @@ function initPhotoLoadMore() {
   const items = Array.from(grid.children);
   const batch = parseInt(btn.dataset.batch, 10) || 16;
   const mq = window.matchMedia('(max-width: 700px)');
-  let shown = batch;
+  let expanded = false;
 
   const apply = () => {
-    shown = batch;
+    expanded = false;
     if (mq.matches) {
       items.forEach((item, i) => { item.hidden = i >= batch; });
+      btn.textContent = 'Meer laden';
       btn.hidden = items.length <= batch;
     } else {
       items.forEach(item => { item.hidden = false; });
@@ -178,9 +179,12 @@ function initPhotoLoadMore() {
   };
 
   btn.addEventListener('click', () => {
-    items.slice(shown, shown + batch).forEach(item => { item.hidden = false; });
-    shown += batch;
-    if (shown >= items.length) btn.hidden = true;
+    expanded = !expanded;
+    items.forEach((item, i) => {
+      item.hidden = expanded ? false : i >= batch;
+    });
+    btn.textContent = expanded ? 'Minder laden' : 'Meer laden';
+    if (!expanded) grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 
   mq.addEventListener('change', apply);
