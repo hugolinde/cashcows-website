@@ -286,6 +286,7 @@ h2 {
 }
 .video-item p { text-align: center; margin-top: 0.5rem; font-weight: 700; }
 .video-item[hidden], .photo-item[hidden] { display: none; }
+.load-more-btn[hidden] { display: none; }
 
 .load-more-btn, .ghost-btn {
   display: block;
