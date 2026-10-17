@@ -2,3 +2,11 @@
 Thumbs.db
 *.log
 node_modules/
+
+# Ongebruikte media (staan alleen lokaal)
+images/gallery/gallery-[1-8].jpg
+images/logo-cow.svg
+images/video-thumbs/hapert-saturday-night.jpg
+images/video-thumbs/live-optreden-2017-*.jpg
+video/hapert-saturday-night.mp4
+video/live-optreden-2017-*.mp4
