@@ -15,14 +15,18 @@
 <link rel="alternate" hreflang="es" href="https://thecashcows.nl/es/rider.html">
 <link rel="alternate" hreflang="x-default" href="https://thecashcows.nl/rider.html">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=8">
+<link rel="stylesheet" href="../css/style.css?v=9">
 </head>
-<body>
+<body class="doc-page-body">
   <div class="doc-bar">
-    <a href="index.html#playlist">&larr; Back to website</a>
-    <span>Technical Rider (in Dutch)</span>
-    <nav class="lang-switch" aria-label="Language"> <a href="../rider.html" hreflang="nl" lang="nl">NL</a> <a href="../en/rider.html" hreflang="en" lang="en" class="active" aria-current="page">EN</a> <a href="../es/rider.html" hreflang="es" lang="es">ES</a> </nav>
+    <a href="index.html#playlist" class="doc-back">&larr; Back</a>
+    <span class="doc-title">Technical Rider</span>
+    <a href="../docs/technical-rider-en.pdf" class="doc-download" download>&#8595; <span class="dl-long">Download </span>PDF</a>
+    <nav class="lang-switch" aria-label="Language"><a href="../rider.html" hreflang="nl" lang="nl">NL</a> <a href="../en/rider.html" hreflang="en" lang="en" class="active" aria-current="page">EN</a> <a href="../es/rider.html" hreflang="es" lang="es">ES</a></nav>
   </div>
-  <iframe class="doc-frame" src="../docs/technical-rider.pdf" title="Technical Rider"></iframe>
+  <div class="doc-pages" id="doc-pages" data-pdf="../docs/technical-rider-en.pdf">
+    <p class="doc-loading">Loading document…</p>
+  </div>
+  <script src="../js/pdf-viewer.js?v=1"></script>
 </body>
 </html>

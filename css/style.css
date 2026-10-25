@@ -483,3 +483,40 @@ footer .icon-btn { width: 56px; height: 56px; }
   .lang-switch a { font-size: 0.95rem; padding: 0.45rem 0.85rem; }
   .doc-bar { flex-wrap: wrap; }
 }
+
+/* ---- Documentpagina's (playlist / rider): alle PDF-pagina's onder elkaar ---- */
+.doc-page-body { background: #1c1c1c; }
+.doc-bar {
+  position: sticky; top: 0; z-index: 10;
+  flex-wrap: wrap;
+  row-gap: 0.75rem;
+}
+.doc-bar .doc-title { flex: 1; min-width: 8rem; }
+.doc-bar a.doc-download { border-color: rgba(255,255,255,0.35); }
+.doc-bar .lang-switch { margin-left: 0; }
+.doc-pages {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.doc-page {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.doc-loading { text-align: center; color: var(--text-dim); padding: 3rem 0; }
+@media (max-width: 700px) {
+  .doc-bar { position: static; padding: 0.75rem 1rem; gap: 0.5rem; row-gap: 0.5rem; }
+  .doc-bar a { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+  .doc-bar .dl-long { display: none; }
+  .doc-bar .doc-title { order: 5; flex-basis: 100%; font-size: 1rem; }
+  .doc-bar .lang-switch { margin-left: auto; gap: 0.25rem; }
+  .doc-bar .lang-switch a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
+  .doc-pages { padding: 0.75rem 0.5rem 2rem; gap: 0.75rem; }
+}

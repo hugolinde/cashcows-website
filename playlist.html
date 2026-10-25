@@ -15,14 +15,18 @@
 <link rel="alternate" hreflang="es" href="https://thecashcows.nl/es/playlist.html">
 <link rel="alternate" hreflang="x-default" href="https://thecashcows.nl/playlist.html">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 </head>
-<body>
+<body class="doc-page-body">
   <div class="doc-bar">
-    <a href="index.html#playlist">&larr; Terug naar website</a>
-    <span>Voorbeeld Playlist</span>
-    <nav class="lang-switch" aria-label="Taal"> <a href="playlist.html" hreflang="nl" lang="nl" class="active" aria-current="page">NL</a> <a href="en/playlist.html" hreflang="en" lang="en">EN</a> <a href="es/playlist.html" hreflang="es" lang="es">ES</a> </nav>
+    <a href="index.html#playlist" class="doc-back">&larr; Terug</a>
+    <span class="doc-title">Voorbeeld Playlist</span>
+    <a href="docs/example-playlist.pdf" class="doc-download" download>&#8595; <span class="dl-long">Download </span>PDF</a>
+    <nav class="lang-switch" aria-label="Taal"><a href="playlist.html" hreflang="nl" lang="nl" class="active" aria-current="page">NL</a> <a href="en/playlist.html" hreflang="en" lang="en">EN</a> <a href="es/playlist.html" hreflang="es" lang="es">ES</a></nav>
   </div>
-  <iframe class="doc-frame" src="docs/example-playlist.pdf" title="Voorbeeld Playlist"></iframe>
+  <div class="doc-pages" id="doc-pages" data-pdf="docs/example-playlist.pdf">
+    <p class="doc-loading">Document laden…</p>
+  </div>
+  <script src="js/pdf-viewer.js?v=1"></script>
 </body>
 </html>
