@@ -450,3 +450,36 @@ footer .icon-btn { width: 56px; height: 56px; }
 
   h2 { font-size: 1.5rem; }
 }
+
+/* ---- Taalkeuze (NL / EN / ES) ---- */
+.lang-switch {
+  position: absolute;
+  top: 1.5rem; left: 1.5rem;
+  display: flex;
+  gap: 0.35rem;
+  z-index: 5;
+}
+.lang-switch a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  line-height: 1.4;
+  transition: background 0.2s, border-color 0.2s;
+}
+.lang-switch a:hover { border-color: var(--gold); }
+.lang-switch a.active { background: var(--gold); border-color: var(--gold); color: #000; }
+.doc-bar .lang-switch { position: static; margin-left: auto; }
+.doc-bar .lang-switch a { border: 1px solid rgba(255,255,255,0.35); padding: 0.3rem 0.75rem; }
+.doc-bar .lang-switch a.active { border-color: var(--gold); color: #000; }
+@media (max-width: 700px) {
+  .hero .lang-switch { top: auto; bottom: 1.25rem; left: 50%; transform: translateX(-50%); }
+  .lang-switch a { font-size: 0.95rem; padding: 0.45rem 0.85rem; }
+  .doc-bar { flex-wrap: wrap; }
+}

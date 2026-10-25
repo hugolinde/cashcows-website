@@ -1,5 +1,13 @@
 // The Cash Cows — site script
 
+// ---- Vertalingen voor teksten die door het script worden gezet ----
+const I18N = {
+  nl: { play: 'Afspelen', pause: 'Pauzeren', more: 'Meer laden', less: 'Minder laden' },
+  en: { play: 'Play', pause: 'Pause', more: 'Load more', less: 'Show less' },
+  es: { play: 'Reproducir', pause: 'Pausar', more: 'Cargar más', less: 'Mostrar menos' }
+};
+const T = I18N[(document.documentElement.lang || 'nl').slice(0, 2)] || I18N.nl;
+
 document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initMobileNav();
@@ -75,11 +83,11 @@ function initAudioPlayer() {
 
   const showPause = () => {
     toggle.classList.add('is-playing');
-    toggle.setAttribute('aria-label', 'Pauzeren');
+    toggle.setAttribute('aria-label', T.pause);
   };
   const showPlay = () => {
     toggle.classList.remove('is-playing');
-    toggle.setAttribute('aria-label', 'Afspelen');
+    toggle.setAttribute('aria-label', T.play);
   };
 
   const play = () => audio.play().catch(() => {});
@@ -149,7 +157,7 @@ function initLoadMore() {
       items.forEach((item, i) => {
         item.hidden = expanded ? false : i >= batch;
       });
-      btn.textContent = expanded ? 'Minder laden' : 'Meer laden';
+      btn.textContent = expanded ? T.less : T.more;
       if (!expanded) grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
   });
@@ -170,7 +178,7 @@ function initPhotoLoadMore() {
     expanded = false;
     if (mq.matches) {
       items.forEach((item, i) => { item.hidden = i >= batch; });
-      btn.textContent = 'Meer laden';
+      btn.textContent = T.more;
       btn.hidden = items.length <= batch;
     } else {
       items.forEach(item => { item.hidden = false; });
@@ -183,7 +191,7 @@ function initPhotoLoadMore() {
     items.forEach((item, i) => {
       item.hidden = expanded ? false : i >= batch;
     });
-    btn.textContent = expanded ? 'Minder laden' : 'Meer laden';
+    btn.textContent = expanded ? T.less : T.more;
     if (!expanded) grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 

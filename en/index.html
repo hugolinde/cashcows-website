@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cash Cows</title>
+<meta name="description" content="The Cash Cows - Dutch cover band with over 20 years of stage experience. Rock, funk-soul and pop.">
+<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0e0e0e">
+<link rel="alternate" hreflang="nl" href="https://thecashcows.nl/">
+<link rel="alternate" hreflang="en" href="https://thecashcows.nl/en/">
+<link rel="alternate" hreflang="es" href="https://thecashcows.nl/es/">
+<link rel="alternate" hreflang="x-default" href="https://thecashcows.nl/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=8">
+</head>
+<body>
+
+<div class="fixed-frame">
+  <button id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+  </button>
+</div>
+
+<header class="hero" id="home">
+  <nav class="lang-switch" aria-label="Language">
+    <a href="../index.html" hreflang="nl" lang="nl">NL</a>
+    <a href="../en/index.html" hreflang="en" lang="en" class="active" aria-current="page">EN</a>
+    <a href="../es/index.html" hreflang="es" lang="es">ES</a>
+  </nav>
+
+  <div class="hero-socials">
+    <a href="https://www.instagram.com/thecashcowsnl?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram" class="icon-btn instagram">
+      <img src="../images/instagram-icon.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/cashcows4ever/" target="_blank" rel="noopener" aria-label="Facebook" class="icon-btn facebook">
+      <img src="../images/facebook-icon.jpg" alt="Facebook">
+    </a>
+  </div>
+
+  <div class="hero-content">
+    <img src="../images/logo-cow.png" alt="The Cash Cows logo" class="logo">
+    <h1>The Cash Cows</h1>
+  </div>
+</header>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#muziek" class="nav-link">Music</a>
+      <a href="#video" class="nav-link">Video</a>
+      <a href="#foto" class="nav-link">Photos</a>
+      <a href="#playlist" class="nav-link">Playlist</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <section id="wij-zijn" class="section">
+    <h2>We are...</h2>
+    <div class="band-row">
+      <img class="band-photo" src="../images/band-photo.jpg" alt="The Cash Cows band photo">
+      <ul class="member-list">
+        <li><span class="name">Martijn</span> – vocals</li>
+        <li><span class="name">Jeroen</span> – saxophone</li>
+        <li><span class="name">Hugo</span> – guitar</li>
+        <li><span class="name">Ernst</span> – keys</li>
+        <li><span class="name">Hein</span> – bass</li>
+        <li><span class="name">Ems</span> – percussion, vocals</li>
+        <li><span class="name">Jos</span> – drums, vocals</li>
+      </ul>
+    </div>
+    <p class="band-description">
+      The Cash Cows is a Dutch band with over 20 years of stage experience, both at home and
+      abroad. Our shows are known for their infectious interaction with the audience.
+      We play an extensive repertoire of rock, funk-soul and pop, and we're happy to add your requests.
+      A great combination of high-energy music and a fantastic atmosphere.
+    </p>
+  </section>
+
+  <section id="testimonial" class="section testimonial">
+    <blockquote>
+      "...Rarely have we seen a band party with the crowd so intensely... what a show!..."
+      <cite>— Dbase Music Magazine</cite>
+    </blockquote>
+    <img class="testimonial-photo" src="../images/testimonial-photo.jpg" alt="The Cash Cows in the middle of the crowd">
+  </section>
+
+  <section id="muziek" class="section">
+    <h2>Music</h2>
+    <div class="player-card">
+      <button id="play-toggle" class="play-btn" aria-label="Play">
+        <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      </button>
+      <div class="player-info">
+        <span class="player-label">Now playing</span>
+        <span class="player-title">Dakterras</span>
+        <span class="player-artist">The Cash Cows</span>
+      </div>
+      <audio id="audio-player" preload="none">
+        <source id="audio-source" src="../muziek/dakterras.mp3" type="audio/mpeg">
+      </audio>
+      <div class="player-controls">
+        <span id="time-current">00:00</span>
+        <input type="range" id="progress" value="0" min="0" max="100">
+        <span id="time-total">04:48</span>
+      </div>
+    </div>
+
+    <ol class="track-list">
+      <li class="active" data-src="../muziek/dakterras.mp3" data-title="Dakterras"><span class="track-name">Dakterras</span><span class="track-time">04:48</span></li>
+      <li data-src="../muziek/i-will-survive.mp3" data-title="I Will Survive"><span class="track-name">I Will Survive</span><span class="track-time">04:21</span></li>
+      <li data-src="../muziek/ik-kan-het-niet-alleen.mp3" data-title="Ik Kan Het Niet Alleen"><span class="track-name">Ik Kan Het Niet Alleen</span><span class="track-time">04:43</span></li>
+      <li data-src="../muziek/saturday-night.mp3" data-title="Saturday Night"><span class="track-name">Saturday Night</span><span class="track-time">03:28</span></li>
+      <li data-src="../muziek/hard-to-handle.mp3" data-title="Hard to Handle"><span class="track-name">Hard to Handle</span><span class="track-time">03:07</span></li>
+      <li data-src="../muziek/brown-sugar.mp3" data-title="Brown Sugar"><span class="track-name">Brown Sugar</span><span class="track-time">04:07</span></li>
+      <li data-src="../muziek/mustang-sally.mp3" data-title="Mustang Sally"><span class="track-name">Mustang Sally</span><span class="track-time">04:02</span></li>
+    </ol>
+  </section>
+
+  <section id="video" class="section">
+    <h2>Video</h2>
+    <div class="video-grid" id="video-grid">
+      <div class="video-item">
+        <video controls preload="none" poster="../images/video-thumbs/live-in-scheveningen-1.jpg"><source src="../video/live-in-scheveningen-1.mp4" type="video/mp4"></video>
+        <p>Live in Scheveningen</p>
+      </div>
+      <div class="video-item">
+        <video controls preload="none" poster="../images/video-thumbs/live-in-javea-2.jpg"><source src="../video/live-in-javea-2.mp4" type="video/mp4"></video>
+        <p>Live in Javea</p>
+      </div>
+      <div class="video-item">
+        <video controls preload="none" poster="../images/video-thumbs/live-in-javea-1.jpg"><source src="../video/live-in-javea-1.mp4" type="video/mp4"></video>
+        <p>Live in Javea</p>
+      </div>
+      <div class="video-item">
+        <video controls preload="none" poster="../images/video-thumbs/live-in-tarragona.jpg"><source src="../video/live-in-tarragona.mp4" type="video/mp4"></video>
+        <p>Live in Tarragona</p>
+      </div>
+      <div class="video-item">
+        <video controls preload="none" poster="../images/video-thumbs/live-in-zeist.jpg"><source src="../video/live-in-zeist.mp4" type="video/mp4"></video>
+        <p>Live in Zeist</p>
+      </div>
+      <div class="video-item">
+        <video controls preload="none" poster="../images/video-thumbs/live-in-wassenaar.jpg"><source src="../video/live-in-wassenaar.mp4" type="video/mp4"></video>
+        <p>Live in Wassenaar</p>
+      </div>
+      <div class="video-item">
+        <video controls preload="none" poster="../images/video-thumbs/live-in-scheveningen-2.jpg"><source src="../video/live-in-scheveningen-2.mp4" type="video/mp4"></video>
+        <p>Live in Scheveningen</p>
+      </div>
+      <div class="video-item">
+        <video controls preload="none" poster="../images/video-thumbs/live-in-naarden-vesting.jpg"><source src="../video/live-in-naarden-vesting.mp4" type="video/mp4"></video>
+        <p>Live in Naarden-Vesting</p>
+      </div>
+      <div class="video-item">
+        <video controls preload="none" poster="../images/video-thumbs/live-in-hapert.jpg"><source src="../video/live-in-hapert.mp4" type="video/mp4"></video>
+        <p>Live in Hapert</p>
+      </div>
+      <div class="video-item">
+        <video controls preload="none" poster="../images/video-thumbs/sax-solo.jpg"><source src="../video/sax-solo.mp4" type="video/mp4"></video>
+        <p>Sax solo</p>
+      </div>
+    </div>
+    <button class="load-more-btn" data-target="video-grid" data-batch="8" hidden>Load more</button>
+  </section>
+
+  <section id="foto" class="section">
+    <h2>Photos</h2>
+    <div class="photo-grid" id="photo-grid">
+      <img class="photo-item" src="../images/gallery/photo-020.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-019.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-018.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-017.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-016.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-015.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-015a.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-014.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-013.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-012.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-011.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-011a.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-010.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-009.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-008.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-007.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-006.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-005.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-004.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-003.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-002.jpg" alt="The Cash Cows" loading="lazy">
+      <img class="photo-item" src="../images/gallery/photo-001.jpg" alt="The Cash Cows" loading="lazy">
+    </div>
+    <button class="load-more-btn photo-load-more" data-batch="8" hidden>Load more</button>
+  </section>
+
+  <section id="playlist" class="section playlist-links">
+    <a href="playlist.html" class="ghost-btn">Sample Playlist</a>
+    <a href="rider.html" class="ghost-btn">Technical Rider</a>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2>Contact</h2>
+    <div class="contact-row">
+      <p>Ready for an amazing party?<br>Email us!<br><a href="mailto:live@thecashcows.nl?subject=Let's%20put%20the%20band%20together!">live@thecashcows.nl</a></p>
+      <a href="mailto:live@thecashcows.nl?subject=Let's%20put%20the%20band%20together!" class="mail-icon" aria-label="Email us">
+        <svg viewBox="0 0 24 24" width="26" height="26"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 5h18v14H3z"/><path fill="none" stroke="currentColor" stroke-width="1.5" d="m3 6 9 7 9-7"/></svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="socials">
+    <a href="https://www.instagram.com/thecashcowsnl?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram" class="icon-btn instagram">
+      <img src="../images/instagram-icon.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/cashcows4ever/" target="_blank" rel="noopener" aria-label="Facebook" class="icon-btn facebook">
+      <img src="../images/facebook-icon.jpg" alt="Facebook">
+    </a>
+  </div>
+  <p><span id="year"></span> The Cash Cows 2026</p>
+</footer>
+
+<script src="../js/main.js?v=3"></script>
+</body>
+</html>
