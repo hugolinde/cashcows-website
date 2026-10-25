@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAudioPlayer();
   initLoadMore();
   initPhotoLoadMore();
+  initAnchorScroll();
 });
 
 // ---- Back to top ----
@@ -197,4 +198,45 @@ function initPhotoLoadMore() {
 
   mq.addEventListener('change', apply);
   apply();
+}
+
+// ---- Menu-links: scroll naar de sectie en corrigeer als de pagina onderweg nog verschuift
+// (bijv. doordat foto's of video's pas tijdens het scrollen laden) ----
+function initAnchorScroll() {
+  const settle = (target) => {
+    let tries = 0, lastY = -1, stable = 0;
+    const check = () => {
+      const offset = target.getBoundingClientRect().top;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (Math.abs(offset) > 4 && !atBottom && window.scrollY === lastY) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        stable = 0;
+      }
+      stable = window.scrollY === lastY ? stable + 1 : 0;
+      lastY = window.scrollY;
+      if (++tries < 40 && stable < 6) setTimeout(check, 150);
+    };
+    setTimeout(check, 150);
+  };
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const id = link.getAttribute('href').slice(1);
+    const target = id && document.getElementById(id);
+    if (!target) return;
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', '#' + id);
+      settle(target);
+    });
+  });
+
+  // Binnenkomen met #playlist of #contact in de URL (bijv. via "Terug" op de documentpagina)
+  if (location.hash) {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) window.addEventListener('load', () => {
+      target.scrollIntoView({ block: 'start' });
+      settle(target);
+    });
+  }
 }

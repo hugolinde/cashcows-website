@@ -8,18 +8,29 @@
   if (!box) return;
   const url = box.dataset.pdf;
 
-  const fallback = () => {
+  // Lukt renderen niet, dan GEEN iframe meer (die toont op mobiel maar 1 pagina),
+  // maar een duidelijke knop om de PDF zelf te openen.
+  const MSG = {
+    nl: ['Het document kan hier niet getoond worden.', 'Open de PDF'],
+    en: ['The document cannot be displayed here.', 'Open the PDF'],
+    es: ['No se puede mostrar el documento aquí.', 'Abrir el PDF']
+  }[(document.documentElement.lang || 'nl').slice(0, 2)] || ['', 'PDF'];
+  const fallback = (err) => {
+    if (err) console.error('[pdf-viewer]', err);
     box.innerHTML = '';
-    const frame = document.createElement('iframe');
-    frame.className = 'doc-frame';
-    frame.src = url;
-    frame.title = document.title;
-    box.replaceWith(frame);
+    const p = document.createElement('p');
+    p.className = 'doc-loading';
+    p.textContent = MSG[0];
+    const a = document.createElement('a');
+    a.href = url;
+    a.className = 'ghost-btn';
+    a.textContent = MSG[1];
+    box.append(p, a);
   };
 
   const script = document.createElement('script');
   script.src = PDFJS + 'pdf.min.js';
-  script.onerror = fallback;
+  script.onerror = () => fallback('pdf.js niet geladen');
   script.onload = async () => {
     try {
       const lib = window.pdfjsLib;
@@ -57,7 +68,7 @@
         t = setTimeout(render, 250);
       });
     } catch (e) {
-      fallback();
+      fallback(e);
     }
   };
   document.head.appendChild(script);
