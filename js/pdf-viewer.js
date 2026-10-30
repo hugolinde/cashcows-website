@@ -24,6 +24,8 @@
     const a = document.createElement('a');
     a.href = url;
     a.className = 'ghost-btn';
+    a.target = '_blank';
+    a.rel = 'noopener';
     a.textContent = MSG[1];
     box.append(p, a);
   };
